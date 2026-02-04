@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Polling Star & CityPulse Design System
+   Professional civic-tech aesthetic with deep blue and orange accents
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Deep civic blue with vibrant orange */
+    --background: 210 25% 97%;
+    --foreground: 215 35% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
+
+    /* Primary - Deep Navy Blue (trust, authority) */
+    --primary: 215 55% 18%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light blue-gray */
+    --secondary: 210 25% 94%;
+    --secondary-foreground: 215 35% 18%;
+
+    /* Muted surfaces */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - Vibrant Orange (action, energy) */
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success/CityPulse Green */
+    --success: 150 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 45 95% 50%;
+    --warning-foreground: 215 35% 15%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 25 95% 53%;
+
+    --radius: 0.625rem;
+
+    /* Sidebar */
+    --sidebar-background: 215 55% 18%;
+    --sidebar-foreground: 210 25% 90%;
+    --sidebar-primary: 25 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 45% 25%;
+    --sidebar-accent-foreground: 210 25% 95%;
+    --sidebar-border: 215 45% 25%;
+    --sidebar-ring: 25 95% 53%;
+
+    /* Custom gradients and shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(215 55% 18%), hsl(215 55% 28%));
+    --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%), hsl(35 95% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 55% 12%) 0%, hsl(215 55% 22%) 50%, hsl(220 50% 30%) 100%);
+    --gradient-citypulse: linear-gradient(135deg, hsl(200 70% 45%), hsl(25 95% 53%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(215 55% 18% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(215 55% 18% / 0.12);
+    --shadow-elevated: 0 20px 60px -15px hsl(215 55% 18% / 0.2);
+    --shadow-glow-accent: 0 8px 30px -6px hsl(25 95% 53% / 0.4);
+  }
+
+  .dark {
+    --background: 215 35% 8%;
+    --foreground: 210 25% 95%;
+
+    --card: 215 35% 12%;
+    --card-foreground: 210 25% 95%;
+
+    --popover: 215 35% 12%;
+    --popover-foreground: 210 25% 95%;
+
+    --primary: 210 40% 96%;
+    --primary-foreground: 215 55% 15%;
+
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 210 25% 95%;
+
+    --muted: 215 30% 18%;
+    --muted-foreground: 210 20% 60%;
+
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 150 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 95% 55%;
+    --warning-foreground: 215 35% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 30% 22%;
+    --input: 215 30% 22%;
+    --ring: 25 95% 55%;
+
+    --sidebar-background: 215 40% 10%;
+    --sidebar-foreground: 210 25% 90%;
+    --sidebar-primary: 25 95% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 35% 18%;
+    --sidebar-accent-foreground: 210 25% 95%;
+    --sidebar-border: 215 35% 18%;
+    --sidebar-ring: 25 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      hsl(215 55% 12% / 0.9) 0%,
+      hsl(215 55% 18% / 0.8) 50%,
+      hsl(215 55% 12% / 0.95) 100%
+    );
+  }
+
+  /* Card Styles */
+  .card-elevated {
+    @apply bg-card rounded-xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-interactive {
+    @apply bg-card rounded-xl transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card-interactive:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-4px);
+  }
+
+  /* Accent Glow */
+  .glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+
+  /* Section Styles */
+  .section-dark {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .section-gradient {
+    background: var(--gradient-primary);
+  }
+
+  /* Feature Cards */
+  .feature-icon {
+    @apply w-14 h-14 rounded-xl flex items-center justify-center bg-accent/10 text-accent;
+  }
+
+  /* Stats */
+  .stat-value {
+    @apply text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-warning bg-clip-text text-transparent;
+  }
+
+  /* App Ecosystem Cards */
+  .app-card {
+    @apply relative overflow-hidden rounded-2xl p-6 transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .app-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-1;
+    background: var(--gradient-accent);
+  }
+
+  /* CityPulse specific */
+  .citypulse-gradient {
+    background: var(--gradient-citypulse);
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent via-warning to-accent bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Animated underline */
+  .animated-underline {
+    @apply relative;
+  }
+
+  .animated-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
