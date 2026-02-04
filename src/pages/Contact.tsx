@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "@emailjs/browser";   // ✅ ADD THIS
 import { 
   Mail, 
   Phone, 
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+
 
 const contactInfo = [
   {
@@ -60,9 +62,26 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    await emailjs.send(
+      "service_01",           // ✅ Service ID
+      "template_ukq4tzd",     // ✅ Template ID
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        organization: formData.organization,
+        service: formData.service,
+        message: formData.message,
+      },
+      "KLNmj6KVQolMesS0Q"     // ✅ Public Key
+    );
+
     toast.success("Thank you for your message! We'll get back to you within 24 hours.");
+
     setFormData({
       name: "",
       email: "",
@@ -71,7 +90,13 @@ const Contact = () => {
       service: "",
       message: ""
     });
-  };
+
+  } catch (error) {
+    console.error("EmailJS Error:", error);
+    toast.error("Failed to send message. Please try again.");
+  }
+};
+
 
   return (
     <Layout>
