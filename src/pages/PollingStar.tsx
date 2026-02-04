@@ -1,11 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  Smartphone, 
-  Users, 
-  UserCheck, 
-  Settings, 
+import {
+  Smartphone,
+  Users,
+  UserCheck,
+  Settings,
   TrendingUp,
   ArrowRight,
   Check,
@@ -140,8 +140,18 @@ const PollingStar = () => {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button variant="heroOutline" size="xl">
-                Download Brochure
+              <Button
+                variant="heroOutline"
+                size="xl"
+                asChild
+              >
+                <a
+                  href={`${import.meta.env.BASE_URL}polling_star.pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </a>
               </Button>
             </div>
           </div>
@@ -199,9 +209,8 @@ const PollingStar = () => {
               <div
                 key={app.id}
                 id={app.id}
-                className={`bg-card rounded-2xl p-8 shadow-card ${
-                  index % 2 === 0 ? "" : "lg:flex-row-reverse"
-                }`}
+                className={`bg-card rounded-2xl p-8 shadow-card ${index % 2 === 0 ? "" : "lg:flex-row-reverse"
+                  }`}
               >
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div className={index % 2 === 0 ? "" : "lg:order-2"}>

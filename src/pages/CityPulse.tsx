@@ -1,12 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  MapPin, 
-  Camera, 
-  Bell, 
-  CheckCircle, 
-  BarChart, 
+import {
+  MapPin,
+  Camera,
+  Bell,
+  CheckCircle,
+  BarChart,
   Users,
   ArrowRight,
   Building2,
@@ -113,9 +113,16 @@ const CityPulse = () => {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button variant="heroOutline" size="xl">
-                Learn More
+              <Button variant="heroOutline" size="xl" asChild>
+                <a
+                  href={`${import.meta.env.BASE_URL}polling_star.pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </a>
               </Button>
+
             </div>
           </div>
         </div>
