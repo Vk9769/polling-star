@@ -17,19 +17,19 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: "info@pollingstar.in",
+    details: "nishantptl99@gmail.com",
     description: "We'll respond within 24 hours"
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: "+91 99999 99999",
+    details: "+91 78987891143",
     description: "Mon-Sat 9AM to 6PM IST"
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    details: "New Delhi, India",
+    details: "Mumbai, India",
     description: "Head Office"
   },
   {
