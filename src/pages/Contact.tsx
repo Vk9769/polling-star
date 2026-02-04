@@ -290,7 +290,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
                 <div className="mt-10 pt-8 border-t border-primary-foreground/20">
                   <p className="text-sm text-primary-foreground/60">
-                    Head Office: New Delhi, India
+                    Head Office: Mumbai, India
                     <br />
                     Regional Offices: Mumbai, Chennai, Kolkata, Hyderabad
                   </p>
